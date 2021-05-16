@@ -1,0 +1,790 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MQTT协议 · 时光 笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="萝卜馋青菜 <fast_ant@163.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../zkclient/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			<li>
+				<a href="https://runing-time.github.io/gitbook_test" target="_blank">学习笔记</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://runing-time.github.io/gitbook_test/" target="_blank" class="custom-link">我的笔记</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../GitBook/">
+            
+                <a href="../../GitBook/">
+            
+                    
+                    GitBook笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../GitBook/GitBook安装笔记.html">
+            
+                <a href="../../GitBook/GitBook安装笔记.html">
+            
+                    
+                    安装笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../GitBook/GitBook使用笔记.html">
+            
+                <a href="../../GitBook/GitBook使用笔记.html">
+            
+                    
+                    使用笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../gh-md-toc-test/ghMdTocTest.html">
+            
+                <a href="../../gh-md-toc-test/ghMdTocTest.html">
+            
+                    
+                    gh-md-toc测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../ThingsBoard/">
+            
+                <a href="../../ThingsBoard/">
+            
+                    
+                    ThingsBoard
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../ThingsBoard/ThingsBoard了解.html">
+            
+                <a href="../../ThingsBoard/ThingsBoard了解.html">
+            
+                    
+                    ThingsBoard了解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    emqx
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../EMQ了解.html">
+            
+                <a href="../EMQ了解.html">
+            
+                    
+                    EMQ了解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../黑马EMQ笔记/">
+            
+                <a href="../黑马EMQ笔记/">
+            
+                    
+                    黑马EMQ笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../黑马EMQ笔记/EMQ_导学讲义.html">
+            
+                <a href="../黑马EMQ笔记/EMQ_导学讲义.html">
+            
+                    
+                    EMQ_导学讲义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" >
+            
+                <a target="_blank" href="http://note.youdao.com/s/NkTRTwwT">
+            
+                    
+                    第1章 MQTT协议与EMQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" >
+            
+                <a target="_blank" href="http://note.youdao.com/s/KNlnEtfL">
+            
+                    
+                    第2章 EMQ基础功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" >
+            
+                <a target="_blank" href="http://note.youdao.com/s/3pq0Hi9Y">
+            
+                    
+                    第3章高级功能使用(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" >
+            
+                <a target="_blank" href="http://note.youdao.com/s/Ku61wK4y">
+            
+                    
+                    第4章EMQ的高级功能使用(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" >
+            
+                <a target="_blank" href="http://note.youdao.com/s/FNcDKTkM">
+            
+                    
+                    第5章EMQ的高级功能使用(三)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    黑马课程学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.3.1" data-path="MQTT协议.html">
+            
+                <a href="MQTT协议.html">
+            
+                    
+                    MQTT协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../zkclient/">
+            
+                <a href="../../zkclient/">
+            
+                    
+                    ZKClient
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../zkclient/Curator/">
+            
+                <a href="../../zkclient/Curator/">
+            
+                    
+                    Apache Curator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../../zkclient/Curator/Curator笔记.html">
+            
+                <a href="../../zkclient/Curator/Curator笔记.html">
+            
+                    
+                    Curator笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../学习中.html">
+            
+                <a href="../../学习中.html">
+            
+                    
+                    学习中
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >MQTT协议</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;"><b>1. </b>MQTT&#x534F;&#x8BAE;</a></li><ul><li><span class="title-icon "></span><a href="#&#x80CC;&#x666F;"><b>1.1. </b>&#x80CC;&#x666F;</a></li><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;"><b>1.2. </b>MQTT&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;</a></li><ul><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x8BBE;&#x8BA1;&#x89C4;&#x8303;"><b>1.2.1. </b>MQTT&#x534F;&#x8BAE;&#x8BBE;&#x8BA1;&#x89C4;&#x8303;</a></li><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x4E3B;&#x8981;&#x7279;&#x6027;"><b>1.2.2. </b>MQTT&#x534F;&#x8BAE;&#x4E3B;&#x8981;&#x7279;&#x6027;</a></li><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x5E94;&#x7528;&#x9886;&#x57DF;"><b>1.2.3. </b>MQTT&#x534F;&#x8BAE;&#x5E94;&#x7528;&#x9886;&#x57DF;</a></li></ul><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x539F;&#x7406;"><b>1.3. </b>MQTT&#x534F;&#x8BAE;&#x539F;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;"><b>1.3.1. </b>MQTT&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4E0E;&#x5E94;&#x7528;&#x6D88;&#x606F;"><b>1.3.2. </b>&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4E0E;&#x5E94;&#x7528;&#x6D88;&#x606F;</a></li><li><span class="title-icon "></span><a href="#mqtt&#x5BA2;&#x6237;&#x7AEF;"><b>1.3.3. </b>MQTT&#x5BA2;&#x6237;&#x7AEF;</a></li><li><span class="title-icon "></span><a href="#mqtt&#x670D;&#x52A1;&#x5668;&#x7AEF;"><b>1.3.4. </b>MQTT&#x670D;&#x52A1;&#x5668;&#x7AEF;</a></li><li><span class="title-icon "></span><a href="#&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x3001;&#x4E3B;&#x9898;&#x3001;&#x4F1A;&#x8BDD;"><b>1.3.5. </b>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x3001;&#x4E3B;&#x9898;&#x3001;&#x4F1A;&#x8BDD;</a></li><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;"><b>1.3.6. </b>MQTT&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;</a></li></ul><li><span class="title-icon "></span><a href="#mqtt&#x534F;&#x8BAE;&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;"><b>1.4. </b>MQTT&#x534F;&#x8BAE;&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;</a></li><ul><li><span class="title-icon "></span><a href="#&#x56FA;&#x5B9A;&#x5934;&#xFF08;fixed-header&#xFF09;"><b>1.4.1. </b>&#x56FA;&#x5B9A;&#x5934;&#xFF08;Fixed header&#xFF09;</a></li><li><span class="title-icon "></span><a href="#&#x53EF;&#x53D8;&#x5934;variable-header"><b>1.4.2. </b>&#x53EF;&#x53D8;&#x5934;(Variable Header)</a></li><li><span class="title-icon "></span><a href="#&#x6D88;&#x606F;&#x4F53;payload"><b>1.4.3. </b>&#x6D88;&#x606F;&#x4F53;(Payload)</a></li></ul></ul></ul></div><a href="#mqtt&#x534F;&#x8BAE;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="mqtt&#x534F;&#x8BAE;"><a name="mqtt&#x534F;&#x8BAE;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;"><i class="fa fa-link" aria-hidden="true"></i></a>1. MQTT&#x534F;&#x8BAE;</h1>
+<h2 id="&#x80CC;&#x666F;"><a name="&#x80CC;&#x666F;" class="anchor-navigation-ex-anchor" href="#&#x80CC;&#x666F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x80CC;&#x666F;</h2>
+<blockquote>
+<p>&#x968F;&#x7740; 5G &#x65F6;&#x4EE3;&#x7684;&#x6765;&#x4E34;&#xFF0C;&#x4E07;&#x7269;&#x7269;&#x8054;&#x7684;&#x4F1F;&#x5927;&#x6784;&#x60F3;&#x6B63;&#x5728;&#x6210;&#x4E3A;&#x73B0;&#x5B9E;&#x3002;&#x8054;&#x7F51;&#x7684;&#x7269;&#x8054;&#x7F51;&#x8BBE;&#x5907;&#x5728; 2018 &#x5E74;&#x5DF2;&#x7ECF;&#x8FBE;&#x5230;&#x4E86; 70 &#x4EBF;&#xFF0C;&#x5728;&#x672A;&#x6765;&#x4E24;&#x5E74;&#xFF0C;&#x4EC5;&#x667A;&#x80FD;&#x6C34;&#x7535;&#x6C14;&#x8868;&#x5C31;&#x5C06;&#x8D85;&#x8FC7;10&#x4EBF;</p>
+</blockquote>
+<p><img src="img/lotnum.png" alt=""></p>
+<blockquote>
+<p>&#x6D77;&#x91CF;&#x7684;&#x8BBE;&#x5907;&#x63A5;&#x5165;&#x548C;&#x8BBE;&#x5907;&#x7BA1;&#x7406;&#x5BF9;&#x7F51;&#x7EDC;&#x5E26;&#x5BBD;&#x3001;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#x4EE5;&#x53CA;&#x5E73;&#x53F0;&#x670D;&#x52A1;&#x67B6;&#x6784;&#x90FD;&#x5E26;&#x6765;&#x4E86;&#x5F88;&#x5927;&#x6311;&#x6218;&#x3002;
+&#x5BF9;&#x4E8E;&#x7269;&#x8054;&#x7F51;&#x534F;&#x8BAE;&#x6765;&#x8BF4;&#xFF0C;&#x5FC5;&#x987B;&#x9488;&#x5BF9;&#x6027;&#x5730;&#x89E3;&#x51B3;&#x7269;&#x8054;&#x7F51;&#x8BBE;&#x5907;&#x901A;&#x4FE1;&#x7684;&#x51E0;&#x4E2A;&#x5173;&#x952E;&#x95EE;&#x9898;&#xFF1A;
+  &#x5176;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x590D;&#x6742;&#x800C;&#x4E0D;&#x53EF;&#x9760;&#x3001;
+  &#x5176;&#x5185;&#x5B58;&#x548C;&#x95EA;&#x5B58;&#x5BB9;&#x91CF;&#x5C0F;&#x3001;
+  &#x5176;&#x5904;&#x7406;&#x5668;&#x80FD;&#x529B;&#x6709;&#x9650;&#x3002;</p>
+<p>MQTT &#x662F;&#x57FA;&#x4E8E; Publish/Subscribe &#x6A21;&#x5F0F;&#x7684;&#x7269;&#x8054;&#x7F51;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#xFF0C;&#x51ED;&#x501F;&#x7B80;&#x5355;&#x6613;&#x5B9E;&#x73B0;&#x3001;&#x652F;&#x6301; QoS&#x3001;&#x62A5;&#x6587;&#x5C0F;&#x7B49;&#x7279;&#x70B9;&#xFF0C;&#x5360;&#x636E;&#x4E86;&#x7269;&#x8054;&#x7F51;&#x534F;&#x8BAE;&#x7684;&#x534A;&#x58C1;&#x6C5F;&#x5C71;&#xFF1A;
+<img src="img/mqtt_p.png" alt=""></p>
+</blockquote>
+<h2 id="mqtt&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;"><a name="mqtt&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. MQTT&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;</h2>
+<blockquote>
+<p><a href="https://mqtt.org/" target="_blank">mqtt&#x5B98;&#x7F51;</a><br><a href="http://mqtt.p2hp.com/" target="_blank">mqtt&#x4E2D;&#x6587;&#x7F51;</a><br>MQTT&#xFF08;Message Queuing Telemetry Transport&#xFF0C;&#x6D88;&#x606F;&#x961F;&#x5217;&#x9065;&#x6D4B;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF09;&#xFF0C;<br>&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#xFF08;publish/subscribe&#xFF09;&#x6A21;&#x5F0F;&#x7684;&quot;&#x8F7B;&#x91CF;&#x7EA7;&quot;&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#xFF0C;&#x8BE5;&#x534F;&#x8BAE;&#x6784;&#x5EFA;&#x4E8E;TCP/IP&#x534F;&#x8BAE;&#x4E0A;&#xFF0C;<br>&#x7531;IBM&#x5728;1999&#x5E74;&#x53D1;&#x5E03;&#x3002;<br>MQTT&#x6700;&#x5927;&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#xFF0C;&#x53EF;&#x4EE5;&#x4EE5;&#x6781;&#x5C11;&#x7684;&#x4EE3;&#x7801;&#x548C;&#x6709;&#x9650;&#x7684;&#x5E26;&#x5BBD;&#xFF0C;&#x4E3A;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x8BBE;&#x5907;&#x63D0;&#x4F9B;&#x5B9E;&#x65F6;&#x53EF;&#x9760;&#x7684;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x3002;<br>&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x4F4E;&#x5F00;&#x9500;&#x3001;&#x4F4E;&#x5E26;&#x5BBD;&#x5360;&#x7528;&#x7684;&#x5373;&#x65F6;&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#xFF0C;&#x4F7F;&#x5176;&#x5728;&#x7269;&#x8054;&#x7F51;&#x3001;&#x5C0F;&#x578B;&#x8BBE;&#x5907;&#x3001;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x7B49;&#x65B9;&#x9762;&#x6709;&#x8F83;&#x5E7F;&#x6CDB;&#x7684;&#x5E94;&#x7528;&#x3002;  </p>
+<p>MQTT&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;-&#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x3002;<br>MQTT&#x534F;&#x8BAE;&#x662F;&#x8F7B;&#x91CF;&#x3001;&#x7B80;&#x5355;&#x3001;&#x5F00;&#x653E;&#x548C;&#x6613;&#x4E8E;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x8FD9;&#x4E9B;&#x7279;&#x70B9;&#x4F7F;&#x5B83;&#x9002;&#x7528;&#x8303;&#x56F4;&#x975E;&#x5E38;&#x5E7F;&#x6CDB;&#x3002;<br>&#x5728;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5305;&#x62EC;&#x53D7;&#x9650;&#x7684;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x5982;&#xFF1A;&#x673A;&#x5668;&#x4E0E;&#x673A;&#x5668;&#xFF08;M2M&#xFF09;&#x901A;&#x4FE1;&#x548C;&#x7269;&#x8054;&#x7F51;&#xFF08;IoT&#xFF09;&#x3002;&#x5176;&#x5728;&#xFF0C;&#x901A;&#x8FC7;&#x536B;&#x661F;&#x94FE;&#x8DEF;&#x901A;&#x4FE1;&#x4F20;&#x611F;&#x5668;&#x3001;&#x5076;&#x5C14;&#x62E8;&#x53F7;&#x7684;&#x533B;&#x7597;&#x8BBE;&#x5907;&#x3001;&#x667A;&#x80FD;&#x5BB6;&#x5C45;&#x3001;&#x53CA;&#x4E00;&#x4E9B;&#x5C0F;&#x578B;&#x5316;&#x8BBE;&#x5907;&#x4E2D;&#x5DF2;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x3002;
+<img src="img/mqtt&#x6D41;&#x7A0B;&#x56FE;.png" alt=""></p>
+</blockquote>
+<h3 id="mqtt&#x534F;&#x8BAE;&#x8BBE;&#x8BA1;&#x89C4;&#x8303;"><a name="mqtt&#x534F;&#x8BAE;&#x8BBE;&#x8BA1;&#x89C4;&#x8303;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x8BBE;&#x8BA1;&#x89C4;&#x8303;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.1. MQTT&#x534F;&#x8BAE;&#x8BBE;&#x8BA1;&#x89C4;&#x8303;</h3>
+<pre class="language-"><code>&#xFF08;1&#xFF09;&#x7CBE;&#x7B80;&#xFF0C;&#x4E0D;&#x6DFB;&#x52A0;&#x53EF;&#x6709;&#x53EF;&#x65E0;&#x7684;&#x529F;&#x80FD;&#xFF1B;
+&#xFF08;2&#xFF09;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#xFF08;Pub/Sub&#xFF09;&#x6A21;&#x5F0F;&#xFF0C;&#x65B9;&#x4FBF;&#x6D88;&#x606F;&#x5728;&#x4F20;&#x611F;&#x5668;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#xFF0C;&#x89E3;&#x8026;Client/Server&#x6A21;&#x5F0F;&#xFF0C;&#x5E26;&#x6765;&#x7684;&#x597D;&#x5904;&#x5728;&#x4E8E;&#x4E0D;&#x5FC5;&#x9884;&#x5148;&#x77E5;&#x9053;&#x5BF9;&#x65B9;&#x7684;&#x5B58;&#x5728;&#xFF08;ip/port&#xFF09;&#xFF0C;&#x4E0D;&#x5FC5;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#xFF1B;
+    &#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x6A21;&#x5F0F;
+&#xFF08;3&#xFF09;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x4E3B;&#x9898;&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x9884;&#x5148;&#x521B;&#x5EFA;&#x4E3B;&#x9898;&#xFF09;&#xFF0C;&#x96F6;&#x8FD0;&#x7EF4;&#x6210;&#x672C;&#xFF1B;
+&#xFF08;4&#xFF09;&#x628A;&#x4F20;&#x8F93;&#x91CF;&#x964D;&#x5230;&#x6700;&#x4F4E;&#x4EE5;&#x63D0;&#x9AD8;&#x4F20;&#x8F93;&#x6548;&#x7387;&#xFF1B;
+&#xFF08;5&#xFF09;&#x628A;&#x4F4E;&#x5E26;&#x5BBD;&#x3001;&#x9AD8;&#x5EF6;&#x8FDF;&#x3001;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#x7F51;&#x7EDC;&#x7B49;&#x56E0;&#x7D20;&#x8003;&#x8651;&#x5728;&#x5185;&#xFF1B;
+&#xFF08;6&#xFF09;&#x652F;&#x6301;&#x8FDE;&#x7EED;&#x7684;&#x4F1A;&#x8BDD;&#x4FDD;&#x6301;&#x548C;&#x63A7;&#x5236;&#xFF08;&#x5FC3;&#x8DF3;&#xFF09;&#xFF1B;
+&#xFF08;7&#xFF09;&#x7406;&#x89E3;&#x5BA2;&#x6237;&#x7AEF;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x53EF;&#x80FD;&#x5F88;&#x4F4E;&#xFF1B;
+&#xFF08;8&#xFF09;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#xFF08;quality of service level&#xFF1A;QoS&#xFF09;&#x7BA1;&#x7406;&#xFF1B;
+&#xFF08;9&#xFF09;&#x4E0D;&#x5F3A;&#x6C42;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x7684;&#x7C7B;&#x578B;&#x4E0E;&#x683C;&#x5F0F;&#xFF0C;&#x4FDD;&#x6301;&#x7075;&#x6D3B;&#x6027;&#xFF08;&#x6307;&#x7684;&#x662F;&#x5E94;&#x7528;&#x5C42;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#xFF09;&#x3002;
+</code></pre><h3 id="mqtt&#x534F;&#x8BAE;&#x4E3B;&#x8981;&#x7279;&#x6027;"><a name="mqtt&#x534F;&#x8BAE;&#x4E3B;&#x8981;&#x7279;&#x6027;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x4E3B;&#x8981;&#x7279;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2. MQTT&#x534F;&#x8BAE;&#x4E3B;&#x8981;&#x7279;&#x6027;</h3>
+<blockquote>
+<p>MQTT&#x534F;&#x8BAE;&#x5DE5;&#x4F5C;&#x5728;&#x4F4E;&#x5E26;&#x5BBD;&#x3001;&#x4E0D;&#x53EF;&#x9760;&#x7684;&#x7F51;&#x7EDC;&#x7684;&#x8FDC;&#x7A0B;&#x4F20;&#x611F;&#x5668;&#x548C;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#x901A;&#x8BAF;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x5B83;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x4E3B;&#x8981;&#x7684;&#x51E0;&#x9879;&#x7279;&#x6027;&#xFF1A;</p>
+<pre class="language-"><code>&#xFF08;1&#xFF09;&#x5F00;&#x653E;&#x6D88;&#x606F;&#x534F;&#x8BAE;&#xFF0C;&#x7B80;&#x5355;&#x6613;&#x5B9E;&#x73B0;&#x3002;
+&#xFF08;2&#xFF09;&#x4F7F;&#x7528;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x6D88;&#x606F;&#x6A21;&#x5F0F;&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#xFF0C;&#x89E3;&#x9664;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8026;&#x5408;&#x3002;
+&#xFF08;3&#xFF09;&#x5BF9;&#x8D1F;&#x8F7D;&#xFF08;&#x534F;&#x8BAE;&#x643A;&#x5E26;&#x7684;&#x5E94;&#x7528;&#x6570;&#x636E;&#xFF09;&#x5185;&#x5BB9;&#x5C4F;&#x853D;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x8F93;&#x3002;
+&#xFF08;4&#xFF09;&#x57FA;&#x4E8E;TCP/IP&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;,&#x63D0;&#x4F9B;&#x6709;&#x5E8F;&#xFF0C;&#x65E0;&#x635F;&#xFF0C;&#x53CC;&#x5411;&#x8FDE;&#x63A5;&#x3002;
+        &#x4E3B;&#x6D41;&#x7684;MQTT&#x662F;&#x57FA;&#x4E8E;TCP&#x8FDE;&#x63A5;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x63A8;&#x9001;&#x7684;&#xFF0C;
+        &#x4F46;&#x662F;&#x540C;&#x6837;&#x6709;&#x57FA;&#x4E8E;UDP&#x7684;&#x7248;&#x672C;&#xFF0C;&#x53EB;&#x505A;MQTT-SN&#x3002;
+        &#x8FD9;&#x4E24;&#x79CD;&#x7248;&#x672C;&#x7531;&#x4E8E;&#x57FA;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;&#xFF0C;&#x4F18;&#x7F3A;&#x70B9;&#x81EA;&#x7136;&#x4E5F;&#x5C31;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x4E86;&#x3002;
+&#xFF08;5&#xFF09;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#xFF08;QoS&#xFF09;&#x652F;&#x6301;&#xFF0C;&#x53EF;&#x9760;&#x4F20;&#x8F93;&#x4FDD;&#x8BC1;&#xFF1B;&#x6709;&#x4E09;&#x79CD;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#xFF1A;
+        QoS0&#xFF1A;&quot;&#x81F3;&#x591A;&#x4E00;&#x6B21;&quot;&#xFF0C;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#x5B8C;&#x5168;&#x4F9D;&#x8D56;&#x5E95;&#x5C42;TCP/IP&#x7F51;&#x7EDC;&#x3002;
+                &#x4F1A;&#x53D1;&#x751F;&#x6D88;&#x606F;&#x4E22;&#x5931;&#x6216;&#x91CD;&#x590D;&#x3002;&#x8FD9;&#x4E00;&#x7EA7;&#x522B;&#x53EF;&#x7528;&#x4E8E;&#x5982;&#x4E0B;&#x60C5;&#x51B5;&#xFF0C;&#x73AF;&#x5883;&#x4F20;&#x611F;&#x5668;&#x6570;&#x636E;&#xFF0C;&#x4E22;&#x5931;&#x4E00;&#x6B21;&#x8BFB;&#x8BB0;&#x5F55;&#x65E0;&#x6240;&#x8C13;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x4E45;&#x540E;&#x8FD8;&#x4F1A;&#x6709;&#x7B2C;&#x4E8C;&#x6B21;&#x53D1;&#x9001;&#x3002;&#x8FD9;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x4E3B;&#x8981;&#x666E;&#x901A;APP&#x7684;&#x63A8;&#x9001;&#xFF0C;&#x5018;&#x82E5;&#x4F60;&#x7684;&#x667A;&#x80FD;&#x8BBE;&#x5907;&#x5728;&#x6D88;&#x606F;&#x63A8;&#x9001;&#x65F6;&#x672A;&#x8054;&#x7F51;&#xFF0C;&#x63A8;&#x9001;&#x8FC7;&#x53BB;&#x6CA1;&#x6536;&#x5230;&#xFF0C;&#x518D;&#x6B21;&#x8054;&#x7F51;&#x4E5F;&#x5C31;&#x6536;&#x4E0D;&#x5230;&#x4E86;&#x3002;
+        QoS1&#xFF1A;&quot;&#x81F3;&#x5C11;&#x4E00;&#x6B21;&quot;&#xFF0C;&#x786E;&#x4FDD;&#x6D88;&#x606F;&#x5230;&#x8FBE;&#xFF0C;&#x4F46;&#x6D88;&#x606F;&#x91CD;&#x590D;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x751F;&#x3002;
+        QoS2&#xFF1A;&quot;&#x53EA;&#x6709;&#x4E00;&#x6B21;&quot;&#xFF0C;&#x786E;&#x4FDD;&#x6D88;&#x606F;&#x5230;&#x8FBE;&#x4E00;&#x6B21;&#x3002;&#x5728;&#x4E00;&#x4E9B;&#x8981;&#x6C42;&#x6BD4;&#x8F83;&#x4E25;&#x683C;&#x7684;&#x8BA1;&#x8D39;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6B64;&#x7EA7;&#x522B;&#x3002;
+                &#x5728;&#x8BA1;&#x8D39;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x6D88;&#x606F;&#x91CD;&#x590D;&#x6216;&#x4E22;&#x5931;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x79CD;&#x6700;&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#x670D;&#x52A1;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5373;&#x65F6;&#x901A;&#x8BAF;&#x7C7B;&#x7684;APP&#x7684;&#x63A8;&#x9001;&#xFF0C;&#x786E;&#x4FDD;&#x7528;&#x6237;&#x6536;&#x5230;&#x4E14;&#x53EA;&#x4F1A;&#x6536;&#x5230;&#x4E00;&#x6B21;&#x3002;
+&#xFF08;6&#xFF09;1&#x5B57;&#x8282;&#x56FA;&#x5B9A;&#x62A5;&#x5934;&#xFF0C;2&#x5B57;&#x8282;&#x5FC3;&#x8DF3;&#x62A5;&#x6587;&#xFF0C;&#x6700;&#x5C0F;&#x5316;&#x4F20;&#x8F93;&#x5F00;&#x9500;&#x548C;&#x534F;&#x8BAE;&#x4EA4;&#x6362;&#xFF0C;&#x6709;&#x6548;&#x51CF;&#x5C11;&#x7F51;&#x7EDC;&#x6D41;&#x91CF;&#x3002;
+    &#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x4ECB;&#x7ECD;&#x91CC;&#x8BF4;&#x5B83;&#x975E;&#x5E38;&#x9002;&#x5408;&quot;&#x5728;&#x7269;&#x8054;&#x7F51;&#x9886;&#x57DF;&#xFF0C;&#x4F20;&#x611F;&#x5668;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x4FE1;&#x606F;&#x7684;&#x6536;&#x96C6;&#xFF0C;&#x8981;&#x77E5;&#x9053;&#x5D4C;&#x5165;&#x5F0F;&#x8BBE;&#x5907;&#x7684;&#x8FD0;&#x7B97;&#x80FD;&#x529B;&#x548C;&#x5E26;&#x5BBD;&#x90FD;&#x76F8;&#x5BF9;&#x8584;&#x5F31;&#xFF0C;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x534F;&#x8BAE;&#x6765;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x518D;&#x9002;&#x5408;&#x4E0D;&#x8FC7;&#x4E86;&#x3002;
+&#xFF08;7&#xFF09;&#x5728;&#x7EBF;&#x72B6;&#x6001;&#x611F;&#x77E5;&#xFF1A;&#x4F7F;&#x7528;Last Will&#x548C;Testament&#x7279;&#x6027;&#x901A;&#x77E5;&#x6709;&#x5173;&#x5404;&#x65B9;&#x5BA2;&#x6237;&#x7AEF;&#x5F02;&#x5E38;&#x4E2D;&#x65AD;&#x7684;&#x673A;&#x5236;&#x3002;
+        Last Will&#xFF1A;&#x5373;&#x9057;&#x8A00;&#x673A;&#x5236;&#xFF0C;&#x7528;&#x4E8E;&#x901A;&#x77E5;&#x540C;&#x4E00;&#x4E3B;&#x9898;&#x4E0B;&#x7684;&#x5176;&#x4ED6;&#x8BBE;&#x5907;&#xFF0C;&#x53D1;&#x9001;&#x9057;&#x8A00;&#x7684;&#x8BBE;&#x5907;&#x5DF2;&#x7ECF;&#x65AD;&#x5F00;&#x4E86;&#x8FDE;&#x63A5;&#x3002;
+        Testament&#xFF1A;&#x9057;&#x5631;&#x673A;&#x5236;&#xFF0C;&#x529F;&#x80FD;&#x7C7B;&#x4F3C;&#x4E8E;Last Will&#x3002;
+</code></pre></blockquote>
+<h3 id="mqtt&#x534F;&#x8BAE;&#x5E94;&#x7528;&#x9886;&#x57DF;"><a name="mqtt&#x534F;&#x8BAE;&#x5E94;&#x7528;&#x9886;&#x57DF;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x5E94;&#x7528;&#x9886;&#x57DF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.3. MQTT&#x534F;&#x8BAE;&#x5E94;&#x7528;&#x9886;&#x57DF;</h3>
+<blockquote>
+<p>MQTT&#x534F;&#x8BAE;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#x4E8E;&#x7269;&#x8054;&#x7F51;&#x3001;&#x79FB;&#x52A8;&#x4E92;&#x8054;&#x7F51;&#x3001;&#x667A;&#x80FD;&#x786C;&#x4EF6;&#x3001;&#x8F66;&#x8054;&#x7F51;&#x3001;&#x7535;&#x529B;&#x80FD;&#x6E90;&#x7B49;&#x9886;&#x57DF;&#x3002;</p>
+<pre class="language-"><code>&#x7269;&#x8054;&#x7F51;M2M&#x901A;&#x4FE1;&#xFF0C;&#x7269;&#x8054;&#x7F51;&#x5927;&#x6570;&#x636E;&#x91C7;&#x96C6;
+Android&#x6D88;&#x606F;&#x63A8;&#x9001;&#xFF0C;WEB&#x6D88;&#x606F;&#x63A8;&#x9001;
+&#x79FB;&#x52A8;&#x5373;&#x65F6;&#x6D88;&#x606F;&#xFF0C;&#x4F8B;&#x5982;Facebook Messenger
+&#x667A;&#x80FD;&#x786C;&#x4EF6;&#x3001;&#x667A;&#x80FD;&#x5BB6;&#x5177;&#x3001;&#x667A;&#x80FD;&#x7535;&#x5668;
+&#x8F66;&#x8054;&#x7F51;&#x901A;&#x4FE1;&#xFF0C;&#x7535;&#x52A8;&#x8F66;&#x7AD9;&#x6869;&#x91C7;&#x96C6;
+&#x667A;&#x6167;&#x57CE;&#x5E02;&#x3001;&#x8FDC;&#x7A0B;&#x533B;&#x7597;&#x3001;&#x8FDC;&#x7A0B;&#x6559;&#x80B2;
+&#x7535;&#x529B;&#x3001;&#x77F3;&#x6CB9;&#x4E0E;&#x80FD;&#x6E90;&#x7B49;&#x884C;&#x4E1A;&#x5E02;&#x573A;
+</code></pre></blockquote>
+<h2 id="mqtt&#x534F;&#x8BAE;&#x539F;&#x7406;"><a name="mqtt&#x534F;&#x8BAE;&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. MQTT&#x534F;&#x8BAE;&#x539F;&#x7406;</h2>
+<h3 id="mqtt&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;"><a name="mqtt&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.1. MQTT&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h3>
+<blockquote>
+<p>&#x5B9E;&#x73B0;MQTT&#x534F;&#x8BAE;&#x9700;&#x8981;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x901A;&#x8BAF;&#x5B8C;&#x6210;&#xFF0C;<br>&#x5728;&#x901A;&#x8BAF;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;MQTT&#x534F;&#x8BAE;&#x4E2D;&#x6709;&#x4E09;&#x79CD;&#x8EAB;&#x4EFD;&#xFF1A;<br>&#x53D1;&#x5E03;&#x8005;&#xFF08;Publish&#xFF09;&#x3001;&#x4EE3;&#x7406;&#xFF08;Broker&#xFF09;&#xFF08;&#x670D;&#x52A1;&#x5668;&#xFF09;&#x3001;&#x8BA2;&#x9605;&#x8005;&#xFF08;Subscribe&#xFF09;&#x3002;<br>&#x5176;&#x4E2D;&#xFF0C;&#x6D88;&#x606F;&#x7684;&#x53D1;&#x5E03;&#x8005;&#x548C;&#x8BA2;&#x9605;&#x8005;&#x90FD;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x6D88;&#x606F;&#x4EE3;&#x7406;&#x662F;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#x8005;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x662F;&#x8BA2;&#x9605;&#x8005;&#x3002;<br>MQTT&#x4F20;&#x8F93;&#x7684;&#x6D88;&#x606F;&#x5206;&#x4E3A;&#xFF1A;&#x4E3B;&#x9898;&#xFF08;Topic&#xFF09;&#x548C;&#x8D1F;&#x8F7D;&#xFF08;payload&#xFF09;&#x4E24;&#x90E8;&#x5206;&#xFF1A;<br>&#xFF08;1&#xFF09;Topic&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6D88;&#x606F;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8BA2;&#x9605;&#x8005;&#x8BA2;&#x9605;&#xFF08;Subscribe&#xFF09;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x6536;&#x5230;&#x8BE5;&#x4E3B;&#x9898;&#x7684;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#xFF08;payload&#xFF09;&#xFF1B;<br>&#xFF08;2&#xFF09;payload&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6D88;&#x606F;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x662F;&#x6307;&#x8BA2;&#x9605;&#x8005;&#x5177;&#x4F53;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5BB9;&#x3002;  </p>
+</blockquote>
+<h3 id="&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4E0E;&#x5E94;&#x7528;&#x6D88;&#x606F;"><a name="&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4E0E;&#x5E94;&#x7528;&#x6D88;&#x606F;" class="anchor-navigation-ex-anchor" href="#&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4E0E;&#x5E94;&#x7528;&#x6D88;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.2. &#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x4E0E;&#x5E94;&#x7528;&#x6D88;&#x606F;</h3>
+<blockquote>
+<p>MQTT&#x4F1A;&#x6784;&#x5EFA;&#x5E95;&#x5C42;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#xFF1A;&#x5B83;&#x5C06;&#x5EFA;&#x7ACB;&#x5BA2;&#x6237;&#x7AEF;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x63D0;&#x4F9B;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x7684;&#x3001;&#x65E0;&#x635F;&#x7684;&#x3001;&#x57FA;&#x4E8E;&#x5B57;&#x8282;&#x6D41;&#x7684;&#x53CC;&#x5411;&#x4F20;&#x8F93;&#x3002;<br>&#x5F53;&#x5E94;&#x7528;&#x6570;&#x636E;&#x901A;&#x8FC7;MQTT&#x7F51;&#x7EDC;&#x53D1;&#x9001;&#x65F6;&#xFF0C;MQTT&#x4F1A;&#x628A;&#x4E0E;&#x4E4B;&#x76F8;&#x5173;&#x7684;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#xFF08;QoS&#xFF09;&#x548C;&#x4E3B;&#x9898;&#x540D;&#xFF08;Topic&#xFF09;&#x76F8;&#x5173;&#x8FDE;&#x3002;</p>
+</blockquote>
+<h3 id="mqtt&#x5BA2;&#x6237;&#x7AEF;"><a name="mqtt&#x5BA2;&#x6237;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#mqtt&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.3. MQTT&#x5BA2;&#x6237;&#x7AEF;</h3>
+<blockquote>
+<p>&#x4E00;&#x4E2A;&#x4F7F;&#x7528;MQTT&#x534F;&#x8BAE;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6216;&#x8005;&#x8BBE;&#x5907;&#xFF0C;&#x5B83;&#x603B;&#x662F;&#x5EFA;&#x7ACB;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<pre class="language-"><code>&#xFF08;1&#xFF09;&#x53D1;&#x5E03;&#x5176;&#x4ED6;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x80FD;&#x4F1A;&#x8BA2;&#x9605;&#x7684;&#x4FE1;&#x606F;&#xFF1B;
+&#xFF08;2&#xFF09;&#x8BA2;&#x9605;&#x5176;&#x5B83;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x5E03;&#x7684;&#x6D88;&#x606F;&#xFF1B;
+&#xFF08;3&#xFF09;&#x9000;&#x8BA2;&#x6216;&#x5220;&#x9664;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6D88;&#x606F;&#xFF1B;
+&#xFF08;4&#xFF09;&#x65AD;&#x5F00;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x8FDE;&#x63A5;&#x3002;
+</code></pre></blockquote>
+<h3 id="mqtt&#x670D;&#x52A1;&#x5668;&#x7AEF;"><a name="mqtt&#x670D;&#x52A1;&#x5668;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#mqtt&#x670D;&#x52A1;&#x5668;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.4. MQTT&#x670D;&#x52A1;&#x5668;&#x7AEF;</h3>
+<blockquote>
+<p>MQTT&#x670D;&#x52A1;&#x5668;&#x4EE5;&#x79F0;&#x4E3A;&quot;&#x6D88;&#x606F;&#x4EE3;&#x7406;&quot;&#xFF08;Broker&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6216;&#x4E00;&#x53F0;&#x8BBE;&#x5907;&#x3002;&#x5B83;&#x662F;&#x4F4D;&#x4E8E;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#x8005;&#x548C;&#x8BA2;&#x9605;&#x8005;&#x4E4B;&#x95F4;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<pre class="language-"><code>&#xFF08;1&#xFF09;&#x63A5;&#x53D7;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#xFF1B;
+&#xFF08;2&#xFF09;&#x63A5;&#x53D7;&#x5BA2;&#x6237;&#x53D1;&#x5E03;&#x7684;&#x5E94;&#x7528;&#x4FE1;&#x606F;&#xFF1B;
+&#xFF08;3&#xFF09;&#x5904;&#x7406;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BA2;&#x9605;&#x548C;&#x9000;&#x8BA2;&#x8BF7;&#x6C42;&#xFF1B;
+&#xFF08;4&#xFF09;&#x5411;&#x8BA2;&#x9605;&#x7684;&#x5BA2;&#x6237;&#x8F6C;&#x53D1;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6D88;&#x606F;&#x3002;
+</code></pre></blockquote>
+<h3 id="&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x3001;&#x4E3B;&#x9898;&#x3001;&#x4F1A;&#x8BDD;"><a name="&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x3001;&#x4E3B;&#x9898;&#x3001;&#x4F1A;&#x8BDD;" class="anchor-navigation-ex-anchor" href="#&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x3001;&#x4E3B;&#x9898;&#x3001;&#x4F1A;&#x8BDD;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.5. &#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x3001;&#x4E3B;&#x9898;&#x3001;&#x4F1A;&#x8BDD;</h3>
+<h4 id="&#x53D1;&#x5E03;&#x8BA2;&#x9605;"><a name="&#x53D1;&#x5E03;&#x8BA2;&#x9605;" class="anchor-navigation-ex-anchor" href="#&#x53D1;&#x5E03;&#x8BA2;&#x9605;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;</h4>
+<blockquote>
+<p>MQTT &#x662F;&#x57FA;&#x4E8E;&#x53D1;&#x5E03;(Publish)/&#x8BA2;&#x9605;(Subscribe)&#x6A21;&#x5F0F;&#x6765;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x53CA;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x7684;&#xFF0C;&#x4E0E; HTTP &#x7684;&#x8BF7;&#x6C42;(Request)/&#x5E94;&#x7B54;(Response)&#x7684;&#x6A21;&#x5F0F;&#x6709;&#x672C;&#x8D28;&#x7684;&#x4E0D;&#x540C;&#x3002;<br>&#x8BA2;&#x9605;&#x8005;(Subscriber)&#x4F1A;&#x5411;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;(Broker)&#x8BA2;&#x9605;&#x4E00;&#x4E2A;&#x4E3B;&#x9898;(Topic)&#x3002;&#x6210;&#x529F;&#x8BA2;&#x9605;&#x540E;&#xFF0C;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x5C06;&#x8BE5;&#x4E3B;&#x9898;&#x4E0B;&#x7684;&#x6D88;&#x606F;&#x8F6C;&#x53D1;&#x7ED9;&#x6240;&#x6709;&#x7684;&#x8BA2;&#x9605;&#x8005;&#x3002;<br>&#x4E3B;&#x9898;(Topic)&#x4EE5; &#x2018;/&#x2019; &#x4E3A;&#x5206;&#x9694;&#x7B26;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;&#x5C42;&#x7EA7;&#x3002;<br>  &#x5305;&#x542B;&#x901A;&#x914D;&#x7B26; &#x2018;+&#x2019; &#x6216; &#x2018;#&#x2019; &#x7684;&#x4E3B;&#x9898;&#x53C8;&#x79F0;&#x4E3A;&#x4E3B;&#x9898;&#x8FC7;&#x6EE4;&#x5668;(Topic Filters);<br>  &#x4E0D;&#x542B;&#x901A;&#x914D;&#x7B26;&#x7684;&#x79F0;&#x4E3A;&#x4E3B;&#x9898;&#x540D;(Topic Names)  </p>
+<pre class="language-"><code>&apos;+&apos;:&#x8868;&#x793A;&#x901A;&#x914D;&#x4E00;&#x4E2A;&#x5C42;&#x7EA7;&#xFF0C;
+    &#x4F8B;&#x5982;a/+&#xFF0C;&#x5339;&#x914D;a/x,a/y
+&apos;#&apos;:&#x8868;&#x793A;&#x901A;&#x914D;&#x591A;&#x4E2A;&#x5C42;&#x7EA7;&#xFF0C;
+    &#x4F8B;&#x5982;a/#&#xFF0C;&#x5339;&#x914D;a/x,a/b/c/d
+&#x6CE8;:&#x2018;+&#x2019;&#x901A;&#x914D;&#x4E00;&#x4E2A;&#x5C42;&#x7EA7;&#xFF0C;&#x2019;#&#x2019;&#x901A;&#x914D;&#x591A;&#x4E2A;&#x5C42;&#x7EA7;(&#x5FC5;&#x987B;&#x5728;&#x672B;&#x5C3E;)&#x3002;
+</code></pre><p>&#x4F8B;&#x5982;:</p>
+<pre class="language-"><code>chat/room/1
+sensor/10/temperature
+sensor/+/temperature
+$SYS/broker/metrics/packets/received
+$SYS/broker/metrics/#
+</code></pre><p>&#x53D1;&#x5E03;&#x8005;(Publisher) &#x53EA;&#x80FD;&#x5411; &#x2018;&#x4E3B;&#x9898;&#x540D;&#x2019; &#x53D1;&#x5E03;&#x6D88;&#x606F;&#xFF0C;&#x8BA2;&#x9605;&#x8005;(Subscriber) &#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BA2;&#x9605; &#x2018;&#x4E3B;&#x9898;&#x8FC7;&#x6EE4;&#x5668;&#x2019; &#x6765;&#x901A;&#x914D;&#x591A;&#x4E2A;&#x4E3B;&#x9898;&#x540D;&#x79F0;&#x3002;</p>
+</blockquote>
+<h4 id="&#x4F1A;&#x8BDD;&#xFF08;session&#xFF09;"><a name="&#x4F1A;&#x8BDD;&#xFF08;session&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x4F1A;&#x8BDD;&#xFF08;session&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F1A;&#x8BDD;&#xFF08;Session&#xFF09;</h4>
+<blockquote>
+<p>&#x6BCF;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x540E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4F1A;&#x8BDD;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x6709;&#x72B6;&#x6001;&#x4EA4;&#x4E92;&#x3002;&#x4F1A;&#x8BDD;&#x5B58;&#x5728;&#x4E8E;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x4E4B;&#x95F4;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x8DE8;&#x8D8A;&#x591A;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x3002;</p>
+</blockquote>
+<h3 id="mqtt&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;"><a name="mqtt&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.6. MQTT&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;</h3>
+<blockquote>
+<p>MQTT&#x534F;&#x8BAE;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#xFF08;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x52A8;&#x4F5C;&#xFF09;&#xFF0C;&#x6765;&#x4E8E;&#x8868;&#x793A;&#x5BF9;&#x786E;&#x5B9A;&#x8D44;&#x6E90;&#x6240;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x53EF;&#x4EE5;&#x4EE3;&#x8868;&#x9884;&#x5148;&#x5B58;&#x5728;&#x7684;&#x6570;&#x636E;&#x6216;&#x52A8;&#x6001;&#x751F;&#x6210;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x8D44;&#x6E90;&#x6307;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x8F93;&#x51FA;&#x3002;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#x6709;&#xFF1A;</p>
+<pre class="language-"><code>&#xFF08;1&#xFF09;CONNECT&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;
+&#xFF08;2&#xFF09;CONNACK&#xFF1A;&#x8FDE;&#x63A5;&#x786E;&#x8BA4;
+&#xFF08;3&#xFF09;PUBLISH&#xFF1A;&#x53D1;&#x5E03;&#x6D88;&#x606F;
+&#xFF08;4&#xFF09;PUBACK&#xFF1A;&#x53D1;&#x5E03;&#x786E;&#x8BA4;
+&#xFF08;5&#xFF09;PUBREC&#xFF1A;&#x53D1;&#x5E03;&#x7684;&#x6D88;&#x606F;&#x5DF2;&#x63A5;&#x6536;
+&#xFF08;6&#xFF09;PUBREL&#xFF1A;&#x53D1;&#x5E03;&#x7684;&#x6D88;&#x606F;&#x5DF2;&#x91CA;&#x653E;
+&#xFF08;7&#xFF09;PUBCOMP&#xFF1A;&#x53D1;&#x5E03;&#x5B8C;&#x6210;
+&#xFF08;8&#xFF09;SUBSCRIBE&#xFF1A;&#x8BA2;&#x9605;&#x8BF7;&#x6C42;
+&#xFF08;9&#xFF09;SUBACK&#xFF1A;&#x8BA2;&#x9605;&#x786E;&#x8BA4;
+&#xFF08;10&#xFF09;UNSUBSCRIBE&#xFF1A;&#x53D6;&#x6D88;&#x8BA2;&#x9605;
+&#xFF08;11&#xFF09;UNSUBACK&#xFF1A;&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x786E;&#x8BA4;
+&#xFF08;12&#xFF09;PINGREQ&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;
+&#xFF08;13&#xFF09;PINGRESP&#xFF1A;&#x670D;&#x52A1;&#x7AEF;&#x5FC3;&#x8DF3;&#x54CD;&#x5E94;
+&#xFF08;14&#xFF09;DISCONNECT&#xFF1A;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;
+&#xFF08;15&#xFF09;AUTH&#xFF1A;&#x8BA4;&#x8BC1;
+</code></pre></blockquote>
+<h2 id="mqtt&#x534F;&#x8BAE;&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;"><a name="mqtt&#x534F;&#x8BAE;&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#mqtt&#x534F;&#x8BAE;&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. MQTT&#x534F;&#x8BAE;&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;</h2>
+<blockquote>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x5BF9;&#x4E8E;MQTT&#x534F;&#x8BAE;&#x5305;&#x7684;&#x7ED3;&#x6784;&#x6709;&#x7740;&#x5177;&#x4F53;&#x7684;&#x8BF4;&#x660E;: <a href="http://mqtt.p2hp.com/mqtt-5-0" target="_blank">&#x5730;&#x5740;</a>
+&#x5728;MQTT&#x534F;&#x8BAE;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;MQTT&#x6570;&#x636E;&#x5305;&#x7531;&#xFF1A;
+  &#x56FA;&#x5B9A;&#x5934;&#xFF08;Fixed header&#xFF09;&#x3001;&#x53EF;&#x53D8;&#x5934;&#xFF08;Variable header&#xFF09;&#x3001;&#x6D88;&#x606F;&#x4F53;&#xFF08;payload&#xFF09;&#x4E09;&#x90E8;&#x5206;&#x6784;&#x6210;&#x3002;
+MQTT&#x6570;&#x636E;&#x5305;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;
+<img src="img/mqtt_data&#x6784;&#x6210;.png" alt=""></p>
+<pre class="language-"><code>&#xFF08;1&#xFF09;&#x56FA;&#x5B9A;&#x5934;&#xFF08;Fixed header&#xFF09;&#x3002;&#x5B58;&#x5728;&#x4E8E;&#x6240;&#x6709;MQTT&#x6570;&#x636E;&#x5305;&#x4E2D;&#xFF0C;&#x8868;&#x793A;&#x6570;&#x636E;&#x5305;&#x7C7B;&#x578B;&#x53CA;&#x6570;&#x636E;&#x5305;&#x7684;&#x5206;&#x7EC4;&#x7C7B;&#x6807;&#x8BC6;&#xFF0C;&#x5982;&#x8FDE;&#x63A5;&#xFF0C;&#x53D1;&#x5E03;&#xFF0C;&#x8BA2;&#x9605;&#xFF0C;&#x5FC3;&#x8DF3;&#x7B49;&#x3002;&#x5176;&#x4E2D;&#x56FA;&#x5B9A;&#x5934;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;MQTT&#x534F;&#x8BAE;&#x4E2D;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x56FA;&#x5B9A;&#x5934;&#x3002;
+&#xFF08;2&#xFF09;&#x53EF;&#x53D8;&#x5934;&#xFF08;Variable header&#xFF09;&#x3002;&#x5B58;&#x5728;&#x4E8E;&#x90E8;&#x5206;MQTT&#x6570;&#x636E;&#x5305;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x5305;&#x7C7B;&#x578B;&#x51B3;&#x5B9A;&#x4E86;&#x53EF;&#x53D8;&#x5934;&#x662F;&#x5426;&#x5B58;&#x5728;&#x53CA;&#x5176;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;&#x53EF;&#x53D8;&#x5934;&#x90E8;&#x4E0D;&#x662F;&#x53EF;&#x9009;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x800C;&#x662F;&#x6307;&#x8FD9;&#x90E8;&#x5206;&#x5728;&#x6709;&#x4E9B;&#x534F;&#x8BAE;&#x7C7B;&#x578B;&#x4E2D;&#x5B58;&#x5728;&#xFF0C;&#x5728;&#x6709;&#x4E9B;&#x534F;&#x8BAE;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x3002;
+&#xFF08;3&#xFF09;&#x6D88;&#x606F;&#x4F53;&#xFF08;Payload&#xFF09;&#x3002;&#x5B58;&#x5728;&#x4E8E;&#x90E8;&#x5206;MQTT&#x6570;&#x636E;&#x5305;&#x4E2D;&#xFF0C;&#x8868;&#x793A;&#x5BA2;&#x6237;&#x7AEF;&#x6536;&#x5230;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;&#x4E0E;&#x53EF;&#x53D8;&#x5934;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x6709;&#x4E9B;&#x534F;&#x8BAE;&#x7C7B;&#x578B;&#x4E2D;&#x6709;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#xFF0C;&#x6709;&#x4E9B;&#x534F;&#x8BAE;&#x7C7B;&#x578B;&#x4E2D;&#x6CA1;&#x6709;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#x3002;
+</code></pre></blockquote>
+<h3 id="&#x56FA;&#x5B9A;&#x5934;&#xFF08;fixed-header&#xFF09;"><a name="&#x56FA;&#x5B9A;&#x5934;&#xFF08;fixed-header&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x56FA;&#x5B9A;&#x5934;&#xFF08;fixed-header&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.1. &#x56FA;&#x5B9A;&#x5934;&#xFF08;Fixed header&#xFF09;</h3>
+<p><img src="img/mqtt&#x56FA;&#x5B9A;&#x62A5;&#x6587;&#x5934;&#x683C;&#x5F0F;.png" alt=""></p>
+<blockquote>
+<p>&#x56FA;&#x5B9A;&#x5934;&#x5B58;&#x5728;&#x4E8E;&#x6240;&#x6709;MQTT&#x6570;&#x636E;&#x5305;&#x4E2D;&#xFF0C;&#x56FA;&#x5B9A;&#x5934;&#x5305;&#x542B;&#x4E24;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#xFF0C;&#x9996;&#x5B57;&#x8282;(&#x5B57;&#x8282;1)&#x548C;&#x5269;&#x4F59;&#x6D88;&#x606F;&#x62A5;&#x6587;&#x957F;&#x5EA6;(&#x4ECE;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B57;&#x8282;&#x5F00;&#x59CB;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;1-4&#x5B57;&#x8282;)&#xFF0C;&#x5269;&#x4F59;&#x957F;&#x5EA6;&#x662F;&#x5F53;&#x524D;&#x5305;&#x4E2D;&#x5269;&#x4F59;&#x5185;&#x5BB9;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x5305;&#x62EC;&#x53D8;&#x91CF;&#x5934;&#x548C;&#x6709;&#x6548;&#x8D1F;&#x8F7D;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF09;&#x3002;&#x5269;&#x4F59;&#x957F;&#x5EA6;&#x4E0D;&#x5305;&#x542B;&#x7528;&#x6765;&#x7F16;&#x7801;&#x5269;&#x4F59;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x8282;&#x3002;<br>&#x5269;&#x4F59;&#x957F;&#x5EA6;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#x7684;&#x7ED3;&#x6784;&#x6765;&#x7F16;&#x7801;&#xFF0C;&#x8FD9;&#x79CD;&#x7ED3;&#x6784;&#x4F7F;&#x7528;&#x5355;&#x4E00;&#x5B57;&#x8282;&#x8868;&#x793A;0-127&#x7684;&#x503C;&#x3002;&#x5927;&#x4E8E;127&#x7684;&#x503C;&#x5982;&#x4E0B;&#x5904;&#x7406;&#x3002;&#x6BCF;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x4F4E;7&#x4F4D;&#x7528;&#x6765;&#x7F16;&#x7801;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x9AD8;&#x4F4D;&#x7528;&#x6765;&#x8868;&#x793A;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x540E;&#x7EED;&#x5B57;&#x8282;&#x3002;&#x56E0;&#x6B64;&#x6BCF;&#x4E2A;&#x5B57;&#x8282;&#x53EF;&#x4EE5;&#x7F16;&#x7801;128&#x4E2A;&#x503C;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x6807;&#x8BC6;&#x4F4D;&#x3002;&#x5269;&#x4F59;&#x957F;&#x5EA6;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x7528;&#x56DB;&#x4E2A;&#x5B57;&#x8282;&#x6765;&#x8868;&#x793A;&#x3002;</p>
+</blockquote>
+<h3 id="&#x53EF;&#x53D8;&#x5934;variable-header"><a name="&#x53EF;&#x53D8;&#x5934;variable-header" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x53D8;&#x5934;variable-header"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.2. &#x53EF;&#x53D8;&#x5934;(Variable Header)</h3>
+<h3 id="&#x6D88;&#x606F;&#x4F53;payload"><a name="&#x6D88;&#x606F;&#x4F53;payload" class="anchor-navigation-ex-anchor" href="#&#x6D88;&#x606F;&#x4F53;payload"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.3. &#x6D88;&#x606F;&#x4F53;(Payload)</h3>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script>
+    var gitalk = new Gitalk({
+    clientID: '4c2fa3d62f2b207e2da4',
+    clientSecret: 'cfeb64e9a617ab3957598b3d1e501f7b9002aca7',
+    repo: 'gitbook-commit',
+    owner: 'runing-time',
+    admin: ['runing-time'],
+    id: md5(location.pathname),
+    });
+    gitalk.render('gitalk-container');
+ </script> 
+
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-05-16 16:43:29
+</span></footer>
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="./" class="navigation navigation-prev " aria-label="Previous page: 黑马课程学习笔记">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="../../zkclient/" class="navigation navigation-next " aria-label="Next page: ZKClient">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"MQTT协议","level":"1.4.3.1","depth":3,"next":{"title":"ZKClient","level":"1.5","depth":1,"path":"doc/zkclient/README.md","ref":"doc/zkclient/README.md","articles":[{"title":"Apache Curator","level":"1.5.1","depth":2,"path":"doc/zkclient/Curator/README.md","ref":"doc/zkclient/Curator/README.md","articles":[{"title":"Curator笔记","level":"1.5.1.1","depth":3,"path":"doc/zkclient/Curator/Curator笔记.md","ref":"doc/zkclient/Curator/Curator笔记.md","articles":[]}]}]},"previous":{"title":"黑马课程学习笔记","level":"1.4.3","depth":2,"path":"doc/emqx/黑马课程学习笔记/README.md","ref":"doc/emqx/黑马课程学习笔记/README.md","articles":[{"title":"MQTT协议","level":"1.4.3.1","depth":3,"path":"doc/emqx/黑马课程学习笔记/MQTT协议.md","ref":"doc/emqx/黑马课程学习笔记/MQTT协议.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-fexa","tbfed-pagefooter","hide-element","expandable-chapters","chapter-fold","-lunr","-search","search-pro","prism","-highlight","splitter","anchor-navigation-ex","pageview-count","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"disqus":{"shortName":"shiguang"},"livereload":{},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./logo.png","favicon":"./favicon.ico"},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"萝卜馋青菜 <fast_ant@163.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"https://runing-time.github.io/gitbook_test","target":"_blank","name":"学习笔记"}]}},"title":"时光 笔记","language":"zh-hans","links":{"sidebar":{"我的笔记":"https://runing-time.github.io/gitbook_test/"}},"gitbook":"*","description":"学习小笔记"},"file":{"path":"doc/emqx/黑马课程学习笔记/MQTT协议.md","mtime":"2021-05-16T08:43:29.736Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-16T08:43:43.461Z"},"basePath":"../../..","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+
+    </body>
+</html>
+
