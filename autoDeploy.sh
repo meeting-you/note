@@ -14,14 +14,14 @@ git commit -asm "auto commit"
 git push origin master
 
 echo "删除旧_book目录"
-rm -rf /var/gitbook/_book/gitbook_test
-mkdir -p /var/gitbook/_book/gitbook_test
+rm -rf /var/gitbook/_book/gitbook_tmp
+mkdir -p /var/gitbook/_book/gitbook_tmp
 echo "安装插件"
 gitbook install ./
 echo "生成_book"
 gitbook build
 echo "拷贝"
-cp -R ../gitbook_test/_book /var/gitbook/_book/gitbook_test
+cp -R ../gitbook_test/_book /var/gitbook/_book/gitbook_tmp
 echo "切换分支"
 git checkout page
 sleep 2
@@ -29,7 +29,7 @@ echo "删除旧文件"
 shopt -s extglob
 rm -rf !(.idea | .gitignore)
 echo "恢复"
-cp -R /var/gitbook/_book/gitbook_test/_book/* ../gitbook_test/
+cp -R /var/gitbook/_book/gitbook_tmp/_book/* ../note/
 sleep 2
 echo "提交page"
 git add .
